@@ -55,7 +55,7 @@ The site is intended to be hosted as a GitHub Pages **project site**:
 https://<username>.github.io/<repository-name>/
 ```
 
-**One manual step required:** after creating the GitHub repository, update `site_url` in [`mkdocs.yml`](mkdocs.yml) (and optionally uncomment `repo_url`) to match your actual GitHub username/repository name.
+**One manual step required:** after creating the GitHub repository, uncomment and set `site_url` in [`mkdocs.yml`](mkdocs.yml) (and optionally `repo_url`) to match your actual GitHub username/repository name. `site_url` only affects canonical links and the sitemap — it is left unset by default so that `mkdocs serve` serves locally at the site root.
 
 ### Custom domain (optional)
 

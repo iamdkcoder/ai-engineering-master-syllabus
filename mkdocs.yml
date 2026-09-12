@@ -1,9 +1,12 @@
 site_name: AI/ML Senior/Lead Engineer Master Syllabus
 site_description: Problem-driven, just-in-time-mathematics curriculum for AI/ML senior/lead engineers.
 
-# EDIT ME: set this to https://<your-username>.github.io/<your-repo-name>/ once the
-# repository has been created on GitHub. This is the only required manual edit.
-site_url: https://example.github.io/ai-engineering-master-syllabus/
+# EDIT ME (single required manual edit): once the GitHub repository exists,
+# uncomment and set this to https://<your-username>.github.io/<your-repo-name>/
+# It only affects canonical links/sitemap generation, not page navigation, so it
+# is intentionally left unset here — setting it to a repo subpath would make
+# `mkdocs serve` serve the site under that subpath instead of http://127.0.0.1:8000/.
+# site_url: https://<your-username>.github.io/<your-repo-name>/
 
 repo_name: ai-engineering-master-syllabus
 # EDIT ME: uncomment and set once the GitHub repository exists.
