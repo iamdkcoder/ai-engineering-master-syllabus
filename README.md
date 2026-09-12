@@ -2,41 +2,93 @@
 
 Problem-driven, just-in-time-mathematics curriculum designed for deep LLM expertise, then Recommendation/Retail, then Computer Vision.
 
-## Start here
-- `00_Curriculum_System/00.01_Master_Learning_Prompt.md`
-- `00_Curriculum_System/00.02_How_to_Use.md`
-- `00_Curriculum_System/00.05_Progress_Tracker.md`
+This repository is a **syllabus inventory**, not a textbook. It contains ~299 Markdown modules across 33 numbered curriculum sections, published as a documentation website.
 
-## Parts
-- `01_Thinking_Like_an_AI_ML_Engineer/README.md`
-- `02_Data_and_Structured_ML_Foundations/README.md`
-- `03_Supervised_Learning_Core/README.md`
-- `04_Unsupervised_Learning_and_Representation/README.md`
-- `05_Evaluation_Statistics_and_Experimentation/README.md`
-- `06_Optimization_and_Learning_Dynamics/README.md`
-- `07_Deep_Learning_Foundations/README.md`
-- `08_NLP_and_Sequence_Foundations/README.md`
-- `09_Generative_Modelling_Foundations/README.md`
-- `10_Transformers_From_First_Principles/README.md`
-- `11_Build_an_LLM_From_Scratch/README.md`
-- `12_LLM_Pretraining_at_Scale/README.md`
-- `13_LLM_Post_Training_and_Fine_Tuning/README.md`
-- `14_LLM_Evaluation/README.md`
-- `15_LLM_Inference_and_Serving/README.md`
-- `16_Retrieval_Search_and_RAG/README.md`
-- `17_AI_Agents_and_Agentic_Systems/README.md`
-- `18_ML_Engineering_and_MLOps/README.md`
-- `19_Recommendation_Systems/README.md`
-- `20_Search_and_Learning_to_Rank/README.md`
-- `21_Time_Series_and_Forecasting/README.md`
-- `22_Retail_and_Ecommerce_ML/README.md`
-- `23_Pricing_Promotions_and_Optimization/README.md`
-- `24_Causal_Inference_and_Decision_Learning/README.md`
-- `25_Computer_Vision/README.md`
-- `26_Multimodal_AI/README.md`
-- `27_Distributed_Training_and_GPU_Computing/README.md`
-- `28_AI_System_Design/README.md`
-- `29_AI_Security_Safety_and_Governance/README.md`
-- `30_Interpretability_and_Explainability/README.md`
-- `31_Research_Engineering_and_Senior_Lead_Skills/README.md`
-- `32_Capstone_Projects/README.md`
+## Documentation architecture
+
+```text
+Markdown
+  -> MkDocs
+  -> Material for MkDocs
+  -> GitHub Actions
+  -> GitHub Pages
+```
+
+All curriculum content lives under [`docs/`](docs/index.md) and is built into a static site with [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, then deployed to GitHub Pages automatically by GitHub Actions on every push to `main`.
+
+## Local setup
+
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+## Serve locally
+
+```bash
+mkdocs serve
+```
+
+The site becomes available at <http://127.0.0.1:8000/>.
+
+## Build
+
+```bash
+mkdocs build --strict
+```
+
+The static site is generated into `site/` (ignored by Git).
+
+## Deployment
+
+Pushes to the `main` branch trigger [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml), which builds the site with `mkdocs build --strict` and deploys it to GitHub Pages. The workflow can also be run manually via `workflow_dispatch`.
+
+The site is intended to be hosted as a GitHub Pages **project site**:
+
+```text
+https://<username>.github.io/<repository-name>/
+```
+
+**One manual step required:** after creating the GitHub repository, update `site_url` in [`mkdocs.yml`](mkdocs.yml) (and optionally uncomment `repo_url`) to match your actual GitHub username/repository name.
+
+### Custom domain (optional)
+
+GitHub Pages custom domains are configured via a `CNAME` file placed in `docs/` (MkDocs copies everything in `docs/` into the built site) plus the repository's Pages settings. No custom domain is configured by default.
+
+## Editing curriculum
+
+Curriculum content lives under [`docs/`](docs/index.md), organized into numbered section folders (`00_...` through `32_...`). Each section folder has an `index.md` landing page and one Markdown file per module. Edit files there and push through Git — folder/file numeric prefixes define ordering and must be preserved.
+
+## Validating content
+
+```bash
+python scripts/validate_docs.py
+```
+
+Checks for duplicate filenames, missing section indexes, broken local Markdown links, missing H1 headings, and empty files.
+
+## Repository layout
+
+```text
+repository-root/
+├── README.md
+├── mkdocs.yml
+├── requirements.txt
+├── .gitignore
+├── docs/
+│   ├── index.md
+│   ├── 00_Curriculum_System/
+│   ├── 01_Thinking_Like_an_AI_ML_Engineer/
+│   └── ... (33 numbered curriculum sections)
+├── scripts/
+│   └── validate_docs.py
+└── .github/
+    └── workflows/
+        └── deploy-docs.yml
+```
