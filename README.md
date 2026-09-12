@@ -49,13 +49,13 @@ The static site is generated into `site/` (ignored by Git).
 
 Pushes to the `main` branch trigger [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml), which builds the site with `mkdocs build --strict` and deploys it to GitHub Pages. The workflow can also be run manually via `workflow_dispatch`.
 
-The site is intended to be hosted as a GitHub Pages **project site**:
+The site is hosted as a GitHub Pages **project site** at:
 
 ```text
-https://<username>.github.io/<repository-name>/
+https://iamdkcoder.github.io/ai-engineering-master-syllabus/
 ```
 
-**One manual step required:** after creating the GitHub repository, uncomment and set `site_url` in [`mkdocs.yml`](mkdocs.yml) (and optionally `repo_url`) to match your actual GitHub username/repository name. `site_url` only affects canonical links and the sitemap — it is left unset by default so that `mkdocs serve` serves locally at the site root.
+This is already configured via `site_url` and `repo_url` in [`mkdocs.yml`](mkdocs.yml). `mkdocs serve` still serves locally at the site root (`http://127.0.0.1:8000/`) regardless of `site_url`.
 
 ### Custom domain (optional)
 

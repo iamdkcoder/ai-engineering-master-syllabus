@@ -1,16 +1,13 @@
 site_name: AI/ML Senior/Lead Engineer Master Syllabus
 site_description: Problem-driven, just-in-time-mathematics curriculum for AI/ML senior/lead engineers.
 
-# EDIT ME (single required manual edit): once the GitHub repository exists,
-# uncomment and set this to https://<your-username>.github.io/<your-repo-name>/
-# It only affects canonical links/sitemap generation, not page navigation, so it
-# is intentionally left unset here — setting it to a repo subpath would make
-# `mkdocs serve` serve the site under that subpath instead of http://127.0.0.1:8000/.
-# site_url: https://<your-username>.github.io/<your-repo-name>/
+# NOTE: only affects canonical links/sitemap generation, not page navigation.
+# Setting it here (repo now exists) is safe for the GitHub Pages build;
+# `mkdocs serve` locally still runs at http://127.0.0.1:8000/ regardless.
+site_url: https://iamdkcoder.github.io/ai-engineering-master-syllabus/
 
 repo_name: ai-engineering-master-syllabus
-# EDIT ME: uncomment and set once the GitHub repository exists.
-# repo_url: https://github.com/<your-username>/<your-repo-name>
+repo_url: https://github.com/iamdkcoder/ai-engineering-master-syllabus
 
 docs_dir: docs
 site_dir: site
